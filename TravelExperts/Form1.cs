@@ -19,7 +19,8 @@ namespace TravelExperts {
         }
 
         private void btnPackages_Click(object sender, EventArgs e) {
-
+            frmPackages packagesOptions = new frmPackages();
+            packagesOptions.Show();
         }
     }
 }

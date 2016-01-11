@@ -14,7 +14,7 @@ namespace TravelExperts {
             InitializeComponent();
         }
 
-        private void packageTable_Load(object sender, EventArgs e)
+        private void frmPackages_Load(object sender, EventArgs e)
         {
             dgvPackages.DataSource = PackagesDB.GetAllPackages();
         }
