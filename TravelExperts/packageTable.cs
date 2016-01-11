@@ -16,7 +16,7 @@ namespace TravelExperts {
 
         private void packageTable_Load(object sender, EventArgs e)
         {
-            dgvPackages.DataSource = PackagesDB.GetAllPackages();
+            //dgvPackages.DataSource = PackagesDB.GetAllPackages();
         }
     }
 }
