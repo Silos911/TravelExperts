@@ -23,7 +23,6 @@ namespace TravelExperts {
                 StreamReader file = new StreamReader("databasestring.txt");
                 string databaseConnection = file.ReadLine();
 
-                //Testing testing testing please delete
                 SqlConnection connect = new SqlConnection(databaseConnection);
                 return connect;
             }
