@@ -21,8 +21,10 @@ namespace TravelExperts {
     class TravelExpertsDB {
         public static SqlConnection GetConnection() {
             try {
+
+                FileStream fs = new FileStream("databasestring.txt", FileMode.Open);
                 //Read a line from where your connection string should be stored
-                StreamReader file = new StreamReader("databasestring.txt");
+                StreamReader file = new StreamReader(fs);
                 string databaseConnection = file.ReadLine();
 
                 SqlConnection connect = new SqlConnection(databaseConnection);

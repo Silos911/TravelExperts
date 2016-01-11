@@ -44,7 +44,7 @@
             this.Controls.Add(this.dgvPackages);
             this.Name = "frmPackages";
             this.Text = "Packages";
-            this.Load += new System.EventHandler(this.packageTable_Load);
+            this.Load += new System.EventHandler(this.frmPackages_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();
             this.ResumeLayout(false);
 
