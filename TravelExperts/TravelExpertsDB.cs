@@ -5,6 +5,8 @@
 
     This class will return a connection to the TravelExperts database. It reads one line
     from databasestring.txt to know where to connect to, then establishes a connection.
+
+    Testing, delete this line
 */
 
 using System;
