@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddPackage.Designer.cs">
+      <DependentUpon>frmAddPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Package.cs" />
     <Compile Include="PackagesDB.cs" />
     <Compile Include="frmPackages.cs">
@@ -65,6 +71,9 @@
     <Compile Include="TravelExpertsDB.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddPackage.resx">
+      <DependentUpon>frmAddPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPackages.resx">
       <DependentUpon>frmPackages.cs</DependentUpon>

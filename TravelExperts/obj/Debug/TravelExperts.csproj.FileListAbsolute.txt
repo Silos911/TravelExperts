@@ -26,3 +26,4 @@ C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\Trav
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\bin\Debug\TravelExperts.exe
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\bin\Debug\TravelExperts.pdb
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmPackages.resources
+C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmAddPackage.resources

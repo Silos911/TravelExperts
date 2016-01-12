@@ -18,5 +18,14 @@ namespace TravelExperts {
         {
             dgvPackages.DataSource = PackagesDB.GetAllPackages();
         }
+
+        private void btnClose_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            frmAddPackage addPackage = new frmAddPackage();
+            addPackage.Show();
+        }
     }
 }
