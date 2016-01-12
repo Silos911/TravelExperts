@@ -24,23 +24,61 @@
         /// </summary>
         private void InitializeComponent() {
             this.dgvPackages = new System.Windows.Forms.DataGridView();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPackages
             // 
+            this.dgvPackages.AllowUserToAddRows = false;
+            this.dgvPackages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPackages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackages.Enabled = false;
             this.dgvPackages.Location = new System.Drawing.Point(-1, 1);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowTemplate.Height = 24;
-            this.dgvPackages.Size = new System.Drawing.Size(703, 245);
+            this.dgvPackages.Size = new System.Drawing.Size(856, 245);
             this.dgvPackages.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(12, 270);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(112, 40);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add Package";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(171, 270);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(180, 40);
+            this.btnModify.TabIndex = 2;
+            this.btnModify.Text = "Modify Selected Package";
+            this.btnModify.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(407, 270);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(177, 40);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete Selected Package";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 372);
+            this.ClientSize = new System.Drawing.Size(856, 322);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvPackages);
             this.Name = "frmPackages";
             this.Text = "Packages";
@@ -53,5 +91,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPackages;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

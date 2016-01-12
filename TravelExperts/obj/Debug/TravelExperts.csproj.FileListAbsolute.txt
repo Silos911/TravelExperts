@@ -25,3 +25,4 @@ C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\Trav
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.GenerateResource.Cache
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\bin\Debug\TravelExperts.exe
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\bin\Debug\TravelExperts.pdb
+C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmPackages.resources
