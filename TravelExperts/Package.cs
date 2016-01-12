@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace TravelExperts
 {
-    class Package
+    public class Package
     {
         public int PackageID { get; set; }
         public string PkgName { get; set; }

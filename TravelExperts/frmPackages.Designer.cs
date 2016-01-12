@@ -34,14 +34,16 @@
             // dgvPackages
             // 
             this.dgvPackages.AllowUserToAddRows = false;
+            this.dgvPackages.AllowUserToDeleteRows = false;
             this.dgvPackages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPackages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackages.Enabled = false;
+            this.dgvPackages.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPackages.Location = new System.Drawing.Point(-1, 1);
             this.dgvPackages.Name = "dgvPackages";
             this.dgvPackages.RowTemplate.Height = 24;
+            this.dgvPackages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPackages.Size = new System.Drawing.Size(856, 245);
             this.dgvPackages.TabIndex = 0;
             // 
@@ -63,6 +65,7 @@
             this.btnModify.TabIndex = 2;
             this.btnModify.Text = "Modify Selected Package";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnDelete
             // 

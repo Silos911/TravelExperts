@@ -121,17 +121,24 @@
             // 
             // dtpStartDate
             // 
+            this.dtpStartDate.CustomFormat = "MMMM\' \'dd\', \'yyyy";
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartDate.Location = new System.Drawing.Point(166, 91);
+            this.dtpStartDate.MinDate = new System.DateTime(2016, 1, 12, 0, 0, 0, 0);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
             this.dtpStartDate.TabIndex = 9;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // dtpEndDate
             // 
+            this.dtpEndDate.CustomFormat = "MMMM dd, yyyy";
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEndDate.Location = new System.Drawing.Point(166, 141);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(200, 22);
             this.dtpEndDate.TabIndex = 10;
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // txtPackageDescription
             // 
@@ -175,6 +182,7 @@
             this.Controls.Add(this.btnCancel);
             this.Name = "frmAddPackage";
             this.Text = "Add Package";
+            this.Load += new System.EventHandler(this.frmAddPackage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
