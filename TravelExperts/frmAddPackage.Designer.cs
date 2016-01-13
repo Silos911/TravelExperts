@@ -37,6 +37,7 @@
             this.txtPackageDescription = new System.Windows.Forms.TextBox();
             this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.txtAgentCommission = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -51,7 +52,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(224, 334);
+            this.btnAdd.Location = new System.Drawing.Point(124, 334);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 38);
             this.btnAdd.TabIndex = 1;
@@ -161,11 +162,22 @@
             this.txtAgentCommission.Size = new System.Drawing.Size(100, 22);
             this.txtAgentCommission.TabIndex = 13;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(225, 334);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(88, 38);
+            this.btnReset.TabIndex = 14;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmAddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 389);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtAgentCommission);
             this.Controls.Add(this.txtBasePrice);
             this.Controls.Add(this.txtPackageDescription);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.TextBox txtPackageDescription;
         private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.TextBox txtAgentCommission;
+        private System.Windows.Forms.Button btnReset;
     }
 }
