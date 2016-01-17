@@ -51,6 +51,54 @@ namespace TravelExperts
                 throw e;
             }
             return allProductSuppliers;
+
+            //include finally?
+            
+        }
+
+        //Adds new Product Supplier
+        public static string AddProductSupplier(ProductSupplier newProductSupplier)
+        {
+            //Gets connection data
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+            //Defining statement to retrieve info using connection above
+            string insertStatement =
+                "INSERT INTO Products_Suppliers " +
+                "(ProductSupplierId, ProductId, SupplierId) " +
+                "Values(@ProductSupplierId, @ProductId, @SupplierId)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connect);
+            insertCommand.Parameters.AddWithValue("@ProductSupplierId", newProductSupplier.ProductSupplierId);
+            insertCommand.Parameters.AddWithValue("@ProductId", newProductSupplier.ProductId);
+            insertCommand.Parameters.AddWithValue("@SupplierId", newProductSupplier.SupplierId);
+            try
+            {
+                //Open connection, executes insert query and verifies data was inserted
+                connect.Open();
+                int nr = insertCommand.ExecuteNonQuery();
+                //if product was successfully inserted, show it on the main form
+                if (nr > 0)
+                {
+                    //Defining statement to retrieve info using connection above
+                    string selectStatement = "SELECT * FROM Products_Suppliers WHERE ProductSupplierId = @ProductSupplierId";
+                    SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
+                    selectCommand.Parameters.AddWithValue("@ProductSupplierId", newProductSupplier.ProductSupplierId);
+                    string newProdSupplier = selectCommand.ExecuteScalar().ToString();
+                    return newProdSupplier;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            //Catches exceptions
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
         }
     }
-}
+}     
