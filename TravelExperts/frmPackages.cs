@@ -49,7 +49,11 @@ namespace TravelExperts {
             }
 
             frmModifyPackage modifyPackage = new frmModifyPackage(editedPackage);
-            modifyPackage.Show();
+            DialogResult result = modifyPackage.ShowDialog();
+
+            if (result == DialogResult.OK) {
+                loadPackages();
+            }
         }
     }
 }

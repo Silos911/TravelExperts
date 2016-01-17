@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Title: PackagesDB
+ * Author: Stephen Strome
+ * Last Date Updated: January 17, 2016
+ * 
+ * The background operation for getting data from the database, adding data, modifying it, and deleting it.
+ * Connects to TravelPackagesDB, and is called from frmPackages, frmAddPackage, and frmModifyPackage.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -65,5 +74,48 @@ namespace TravelExperts {
             }
             return check;
         }
+
+        public static int ModifyPackage(Package oldPackage, Package newPackage) {
+            string updateStatement = "UPDATE Packages SET PkgName = @newPkgName, "
+                + "PkgStartDate = @newPkgStartDate, "
+                + "PkgEndDate = @newPkgEndDate,"
+                + "PkgDesc = @newPkgDesc, "
+                + "PkgBasePrice = @newPkgBasePrice, "
+                + "PkgAgencyCommission = @newPkgAgencyCommission WHERE "
+                + "PkgName = @oldPkgName AND PkgStartDate = @oldPkgStartDate AND PkgEndDate = @oldPkgEndDate "
+                + "AND PkgDesc = @oldPkgDesc AND PkgBasePrice = @oldPkgBasePrice AND "
+                + "PkgAgencyCommission = @oldPkgAgencyCommission";
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connect);
+            updateCommand.Parameters.AddWithValue("@newPkgName", newPackage.PkgName);
+            updateCommand.Parameters.AddWithValue("@newPkgStartDate", newPackage.PkgStartDate);
+            updateCommand.Parameters.AddWithValue("@newPkgEndDate", newPackage.PkgEndDate);
+            updateCommand.Parameters.AddWithValue("@newPkgDesc", newPackage.PkgDesc);
+            updateCommand.Parameters.AddWithValue("@newPkgBasePrice", newPackage.PkgBasePrice);
+            updateCommand.Parameters.AddWithValue("@newPkgAgencyCommission", newPackage.PkgAgencyCommission);
+
+            updateCommand.Parameters.AddWithValue("@oldPkgName", oldPackage.PkgName);
+            updateCommand.Parameters.AddWithValue("@oldPkgStartDate", oldPackage.PkgStartDate);
+            updateCommand.Parameters.AddWithValue("@oldPkgEndDate", oldPackage.PkgEndDate);
+            updateCommand.Parameters.AddWithValue("@oldPkgDesc", oldPackage.PkgDesc);
+            updateCommand.Parameters.AddWithValue("@oldPkgBasePrice", oldPackage.PkgBasePrice);
+            updateCommand.Parameters.AddWithValue("@oldPkgAgencyCommission", oldPackage.PkgAgencyCommission);
+
+            int check = 0;
+
+            try {
+                connect.Open();
+                check = updateCommand.ExecuteNonQuery();
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+            }
+            return check;
+        }
     }
+
 }

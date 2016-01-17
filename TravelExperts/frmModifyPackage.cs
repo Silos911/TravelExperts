@@ -14,6 +14,7 @@ namespace TravelExperts {
         const string PICKED_DATE = "MMMM dd, yyyy"; //Displays a string "FullMonthName DayNumber, YearNumber"
         public bool endDatePicked = false;
         public bool startDatePicked = false;
+        Package oldPackage = new Package();
 
         public frmModifyPackage(Package editedPackage) {
             InitializeComponent();
@@ -24,11 +25,13 @@ namespace TravelExperts {
             txtBasePrice.Text = editedPackage.PkgBasePrice.ToString();
             txtAgentCommission.Text = editedPackage.PkgAgencyCommission.ToString();
 
-            if(dtpStartDate.Value != null) {
+            oldPackage = editedPackage;
+
+            if (dtpStartDate.Value != null) {
                 startDatePicked = true;
                 dtpStartDate.Value = editedPackage.PkgStartDate;
             }
-            if(dtpEndDate.Value != null) {
+            if (dtpEndDate.Value != null) {
                 endDatePicked = true;
                 dtpEndDate.Value = editedPackage.PkgEndDate;
             }
@@ -43,10 +46,10 @@ namespace TravelExperts {
         }
 
         private void frmModifyPackage_Load(object sender, EventArgs e) {
-            if(endDatePicked == false) {
+            if (endDatePicked == false) {
                 ResetEndDate();
             }
-            if(startDatePicked == false) {
+            if (startDatePicked == false) {
                 ResetStartDate();
             }
         }
@@ -81,6 +84,34 @@ namespace TravelExperts {
         private void ResetEndDate() {
             dtpEndDate.MinDate = DateTime.Today.AddDays(1);
             dtpEndDate.CustomFormat = NULL_DATE;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            Package newPackage = new Package();
+
+            newPackage.PkgName = txtPackageName.Text;
+            newPackage.PkgStartDate = dtpStartDate.Value;
+            newPackage.PkgEndDate = dtpEndDate.Value;
+            newPackage.PkgDesc = txtPackageDescription.Text;
+            newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
+            newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgentCommission.Text);
+
+            int check = 0;
+
+            try {
+                check = PackagesDB.ModifyPackage(oldPackage, newPackage);
+            }
+            catch (Exception ex) {
+                MessageBox.Show("An error has occurred: " + ex.Message);
+            }
+
+            if (check > 0) {
+                MessageBox.Show("Modification successful.");
+                DialogResult = DialogResult.OK;
+            }
+            else {
+                MessageBox.Show("Modification failed, please try again.");
+            }
         }
     }
 }
