@@ -60,6 +60,7 @@
     <Compile Include="frmPackages.Designer.cs">
       <DependentUpon>frmPackages.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsSuppliers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelExpertsDB.cs" />
