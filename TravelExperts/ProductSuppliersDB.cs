@@ -100,5 +100,59 @@ namespace TravelExperts
                 connect.Close();
             }
         }
+
+       //Update product supplier
+       public static bool UpdateProductSupplier(ProductSupplier oldProductSupplier, ProductSupplier newProductSupplier)
+        {
+            //Gets connection data
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+            //Defining statement to update info using connection above
+            string updateStatement = "UPDATE Products_Suppliers" +
+                                     "SET ProductSupplierId = @NewProductSupplierId, " +
+                                     "ProductId = @NewProductId, " +
+                                     "SupplierId = @NewSupplierId " +
+                                     "WHERE ProductSupplierId = @OldProductSupplierId " +
+                                     "  AND ProductId = @OldProductId, " +
+                                     "  AND SupplierId = @OldSupplierId";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connect);
+            updateCommand.Parameters.AddWithValue("@NewProductSupplierId", newProductSupplier.ProductSupplierId);
+            updateCommand.Parameters.AddWithValue("@NewProductId", newProductSupplier.ProductId);
+            updateCommand.Parameters.AddWithValue("@NewSupplierId", newProductSupplier.SupplierId);
+            try
+            {
+                //Open connection, executes update query and verifies data was updated
+                connect.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            //Catches exceptions
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
+        //Delete product supplier
+        public static bool DeleteProductSupplier(ProductSupplier productSupplier)
+        {
+            //Gets connection data
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+            connect.Open();
+            //Define delete statement
+            string deleteStatement =
+                "DELETE FROM Products_Suppliers " +
+                "WHERE ProductSupplierId = @ProductSupplierId";
+            //Execute delete statement
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connect);
+            deleteCommand.Parameters.AddWithValue("@ProductSupplierId", productSupplier.ProductSupplierId);
+            deleteCommand.ExecuteNonQuery();
+            return true;
+        }
     }
 }     

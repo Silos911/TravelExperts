@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace TravelExperts
 {
     //Constructor for ProductSupplier class
-    class ProductSupplier
+    public class ProductSupplier
     {
         public int ProductSupplierId { get; set; }
 
