@@ -28,11 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvProductsSuppliers = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsSuppliers)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvProductsSuppliers
+            // 
+            this.dgvProductsSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductsSuppliers.Location = new System.Drawing.Point(63, 34);
+            this.dgvProductsSuppliers.MultiSelect = false;
+            this.dgvProductsSuppliers.Name = "dgvProductsSuppliers";
+            this.dgvProductsSuppliers.RowTemplate.Height = 24;
+            this.dgvProductsSuppliers.Size = new System.Drawing.Size(703, 245);
+            this.dgvProductsSuppliers.TabIndex = 1;
+            // 
+            // frmProducts_Suppliers
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(845, 446);
+            this.Controls.Add(this.dgvProductsSuppliers);
+            this.Name = "frmProducts_Suppliers";
             this.Text = "frmProducts_Suppliers";
+            this.Load += new System.EventHandler(this.frmProducts_Suppliers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsSuppliers)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvProductsSuppliers;
     }
 }

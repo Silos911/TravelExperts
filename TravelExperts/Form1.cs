@@ -22,5 +22,11 @@ namespace TravelExperts {
             frmPackages packagesOptions = new frmPackages();
             packagesOptions.Show();
         }
+
+        private void btnProductsSuppliers_Click(object sender, EventArgs e)
+        {
+            frmProducts_Suppliers productsSuppliers = new frmProducts_Suppliers();
+            productsSuppliers.Show();
+        }
     }
 }

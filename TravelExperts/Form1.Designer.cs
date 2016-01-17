@@ -28,11 +28,12 @@
             this.btnProductSuppliers = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnProductsSuppliers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPackages
             // 
-            this.btnPackages.Location = new System.Drawing.Point(739, 82);
+            this.btnPackages.Location = new System.Drawing.Point(739, 30);
             this.btnPackages.Name = "btnPackages";
             this.btnPackages.Size = new System.Drawing.Size(105, 37);
             this.btnPackages.TabIndex = 0;
@@ -42,7 +43,7 @@
             // 
             // btnProducts
             // 
-            this.btnProducts.Location = new System.Drawing.Point(739, 188);
+            this.btnProducts.Location = new System.Drawing.Point(739, 112);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(105, 37);
             this.btnProducts.TabIndex = 1;
@@ -51,7 +52,7 @@
             // 
             // btnProductSuppliers
             // 
-            this.btnProductSuppliers.Location = new System.Drawing.Point(739, 281);
+            this.btnProductSuppliers.Location = new System.Drawing.Point(739, 203);
             this.btnProductSuppliers.Name = "btnProductSuppliers";
             this.btnProductSuppliers.Size = new System.Drawing.Size(105, 37);
             this.btnProductSuppliers.TabIndex = 2;
@@ -60,7 +61,7 @@
             // 
             // btnSuppliers
             // 
-            this.btnSuppliers.Location = new System.Drawing.Point(739, 374);
+            this.btnSuppliers.Location = new System.Drawing.Point(739, 287);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(105, 37);
             this.btnSuppliers.TabIndex = 3;
@@ -77,11 +78,22 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnProductsSuppliers
+            // 
+            this.btnProductsSuppliers.Location = new System.Drawing.Point(739, 378);
+            this.btnProductsSuppliers.Name = "btnProductsSuppliers";
+            this.btnProductsSuppliers.Size = new System.Drawing.Size(105, 46);
+            this.btnProductsSuppliers.TabIndex = 5;
+            this.btnProductsSuppliers.Text = "Products Suppliers";
+            this.btnProductsSuppliers.UseVisualStyleBackColor = true;
+            this.btnProductsSuppliers.Click += new System.EventHandler(this.btnProductsSuppliers_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 535);
+            this.Controls.Add(this.btnProductsSuppliers);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnProductSuppliers);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.Button btnProductSuppliers;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnProductsSuppliers;
     }
 }
 
