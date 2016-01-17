@@ -33,7 +33,37 @@ namespace TravelExperts {
             catch(Exception e) {
                 throw e;
             }
+            finally {
+                connect.Close();
+            }
             return allPackages;
+        }
+
+        public static int AddPackage(Package newPackage)
+        {
+            int check = 0;
+
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+            string insertStatement = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connect);
+            insertCommand.Parameters.AddWithValue("@PkgName", newPackage.PkgName);
+            insertCommand.Parameters.AddWithValue("@PkgStartDate", newPackage.PkgStartDate);
+            insertCommand.Parameters.AddWithValue("@PkgEndDate", newPackage.PkgEndDate);
+            insertCommand.Parameters.AddWithValue("@PkgDesc", newPackage.PkgDesc);
+            insertCommand.Parameters.AddWithValue("@PkgBasePrice", newPackage.PkgBasePrice);
+            insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", newPackage.PkgAgencyCommission);
+
+            try {
+                connect.Open();
+                check = insertCommand.ExecuteNonQuery();
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+            }
+            return check;
         }
     }
 }

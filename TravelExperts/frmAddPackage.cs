@@ -53,14 +53,34 @@ namespace TravelExperts {
 
         //Reset the start date to default values and make the display string empty
         private void ResetStartDate() {
-            dtpStartDate.Value = null;
+            dtpStartDate.Value = DateTime.Today.AddYears(15);
             dtpStartDate.CustomFormat = NULL_DATE;
         }
 
         //Reset the end date to default values and make the display string empty
         private void ResetEndDate() {
-            dtpEndDate.Value = null;
+            dtpEndDate.Value = DateTime.Today.AddYears(15);
             dtpEndDate.CustomFormat = NULL_DATE;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            Package newPackage = new Package();
+            newPackage.PkgName = txtPackageName.Text;
+            newPackage.PkgStartDate = dtpStartDate.Value;
+            newPackage.PkgEndDate = dtpEndDate.Value;
+            newPackage.PkgDesc = txtPackageDescription.Text;
+            newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
+            newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgentCommission.Text);
+            int check = 0;
+
+            check = PackagesDB.AddPackage(newPackage);
+            if (check > 0) {
+                MessageBox.Show("Package added successfully.");
+                DialogResult = DialogResult.OK;
+            }
+            else {
+                MessageBox.Show("Error adding package, please try again.");
+            }
         }
     }
 }

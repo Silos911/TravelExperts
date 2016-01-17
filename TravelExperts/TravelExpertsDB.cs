@@ -28,10 +28,15 @@ namespace TravelExperts {
                 string databaseConnection = file.ReadLine();
 
                 SqlConnection connect = new SqlConnection(databaseConnection);
+                file.Close();
+                fs.Close();
                 return connect;
             }
             catch(Exception e) {
                 throw e;
+            }
+            finally {
+                
             }
         }
     }

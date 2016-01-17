@@ -16,16 +16,24 @@ namespace TravelExperts {
 
         private void frmPackages_Load(object sender, EventArgs e)
         {
-            dgvPackages.DataSource = PackagesDB.GetAllPackages();
+            loadPackages();
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
         }
 
+        private void loadPackages() {
+            dgvPackages.DataSource = PackagesDB.GetAllPackages();
+        }
+
+
         private void btnAdd_Click(object sender, EventArgs e) {
             frmAddPackage addPackage = new frmAddPackage();
-            addPackage.Show();
+            DialogResult result = addPackage.ShowDialog();
+            if (result == DialogResult.OK) {
+                loadPackages();
+            }
         }
 
         private void btnModify_Click(object sender, EventArgs e) {
