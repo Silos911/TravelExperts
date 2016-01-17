@@ -3,7 +3,10 @@ Title:             Products_SuppliersDB Class
 Author:            Deya Cerdas
 Last Date updated: 2016-01-16
 Description:       Displays data grid view of products suppliers.
-                   
+                   Includes:
+                   -AddProductSupplier()
+                   -EditProductSupplier()
+                   -DeleteProductSupplier()           
 */
 
 using System;

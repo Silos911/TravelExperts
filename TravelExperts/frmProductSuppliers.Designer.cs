@@ -1,6 +1,6 @@
 ﻿namespace TravelExperts
 {
-    partial class frmProducts_Suppliers
+    partial class frmProductSuppliers
     {
         /// <summary>
         /// Required designer variable.

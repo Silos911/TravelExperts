@@ -52,11 +52,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProducts_Suppliers.cs">
+    <Compile Include="frmProductSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProducts_Suppliers.Designer.cs">
-      <DependentUpon>frmProducts_Suppliers.cs</DependentUpon>
+    <Compile Include="frmProductSuppliers.Designer.cs">
+      <DependentUpon>frmProductSuppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="Package.cs" />
     <Compile Include="PackagesDB.cs" />
@@ -74,8 +74,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProducts_Suppliers.resx">
-      <DependentUpon>frmProducts_Suppliers.cs</DependentUpon>
+    <EmbeddedResource Include="frmProductSuppliers.resx">
+      <DependentUpon>frmProductSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

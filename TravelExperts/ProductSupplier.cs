@@ -3,7 +3,7 @@ Title:             ProductSupplier Class
 Author:            Deya Cerdas
 Last Date updated: 2016-01-16
 Description:       Constructor for this class. 
-                   Includes objects: 
+                   Includes: 
                    -ProductSupplierId
                    -ProductId
                    -SupplierId

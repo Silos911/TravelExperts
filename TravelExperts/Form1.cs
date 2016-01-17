@@ -25,7 +25,7 @@ namespace TravelExperts {
 
         private void btnProductsSuppliers_Click(object sender, EventArgs e)
         {
-            frmProducts_Suppliers productsSuppliers = new frmProducts_Suppliers();
+            frmProductSuppliers productsSuppliers = new frmProductSuppliers();
             productsSuppliers.Show();
         }
     }
