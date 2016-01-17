@@ -66,8 +66,8 @@
     <Compile Include="frmPackages.Designer.cs">
       <DependentUpon>frmPackages.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products_Suppliers.cs" />
-    <Compile Include="Products_SuppliersDB.cs" />
+    <Compile Include="ProductSupplier.cs" />
+    <Compile Include="ProductSuppliersDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelExpertsDB.cs" />

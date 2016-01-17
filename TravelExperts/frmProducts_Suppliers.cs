@@ -19,7 +19,7 @@ namespace TravelExperts
 
         private void frmProducts_Suppliers_Load(object sender, EventArgs e)
         {
-            dgvProductsSuppliers.DataSource = Products_SuppliersDB.GetProductsSuppliers();
+            dgvProductsSuppliers.DataSource = ProductSuppliersDB.GetAllProductSuppliers();
         }
     }
 }

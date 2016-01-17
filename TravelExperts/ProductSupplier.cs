@@ -1,5 +1,5 @@
 ﻿/*
-Title:             Products_Suppliers Class 
+Title:             ProductSupplier Class 
 Author:            Deya Cerdas
 Last Date updated: 2016-01-16
 Description:       Constructor for this class. 
@@ -17,8 +17,8 @@ using System.Threading.Tasks;
 
 namespace TravelExperts
 {
-    //Constructor for Products_Suppliers class
-    class Products_Suppliers
+    //Constructor for ProductSupplier class
+    class ProductSupplier
     {
         public int ProductSupplierId { get; set; }
 
