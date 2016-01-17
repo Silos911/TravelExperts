@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Title: frmAddPackage
+ * Author: Stephen Strome
+ * Last Date Updated: January 17, 2016
+ * 
+ * Form built for adding packages. Has fields for package name, start date, end date,
+ * description, base price, and agency commission. Connects to PackagesDB class, is opened
+ * from frmPackages
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,17 +63,18 @@ namespace TravelExperts {
 
         //Reset the start date to default values and make the display string empty
         private void ResetStartDate() {
-            dtpStartDate.Value = DateTime.Today.AddYears(15);
+            dtpStartDate.Value = DateTime.Today;
             dtpStartDate.CustomFormat = NULL_DATE;
         }
 
         //Reset the end date to default values and make the display string empty
         private void ResetEndDate() {
-            dtpEndDate.Value = DateTime.Today.AddYears(15);
+            dtpEndDate.Value = DateTime.Today.AddDays(1);
             dtpEndDate.CustomFormat = NULL_DATE;
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
+            //Stores all the data that's about to be added to the database into an object
             Package newPackage = new Package();
             newPackage.PkgName = txtPackageName.Text;
             newPackage.PkgStartDate = dtpStartDate.Value;
@@ -71,9 +82,18 @@ namespace TravelExperts {
             newPackage.PkgDesc = txtPackageDescription.Text;
             newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
             newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgentCommission.Text);
-            int check = 0;
+            int check = 0;  //Check to see if any lines were effected, therefore the insert was successful
+            
+            //Try to insert the data
+            try {
+                check = PackagesDB.AddPackage(newPackage);
+            
+            }
+            catch(Exception ex) {
+                MessageBox.Show("An error has occurred: " + ex.Message);
+            }
 
-            check = PackagesDB.AddPackage(newPackage);
+            //If the insert was successful, give an appropriate message box and set DialogResult to OK
             if (check > 0) {
                 MessageBox.Show("Package added successfully.");
                 DialogResult = DialogResult.OK;
@@ -81,6 +101,7 @@ namespace TravelExperts {
             else {
                 MessageBox.Show("Error adding package, please try again.");
             }
+            
         }
     }
 }
