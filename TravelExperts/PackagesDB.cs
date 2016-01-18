@@ -17,16 +17,17 @@ using System.Threading.Tasks;
 namespace TravelExperts {
     class PackagesDB {
         public static List<Package> GetAllPackages() {
-            SqlConnection connect = TravelExpertsDB.GetConnection();
-            string selectStatement = "SELECT * FROM Packages";
-            SqlCommand selectCommand = new SqlCommand(selectStatement, connect);
-            List<Package> allPackages = new List<Package>();
-            Package newPackage;
+            SqlConnection connect = TravelExpertsDB.GetConnection(); //The connection to the database
+            string selectStatement = "SELECT * FROM Packages";  //The select statement to pull the data
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connect);    //The command for the database
+            List<Package> allPackages = new List<Package>();    //The list everything will be stored in
+            Package newPackage; //The object each row will temporarily be stored in
 
             try {
                 connect.Open();
                 SqlDataReader read = selectCommand.ExecuteReader();
 
+                //Reads each row from the database and stores it in a list
                 while (read.Read()) {
                     newPackage = new Package();
                     newPackage.PackageID = Convert.ToInt32(read["PackageID"]);
@@ -53,7 +54,11 @@ namespace TravelExperts {
             int check = 0;
 
             SqlConnection connect = TravelExpertsDB.GetConnection();
-            string insertStatement = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+            string insertStatement = "INSERT INTO Packages (PkgName, PkgStartDate, PkgEndDate, "
+                + "PkgDesc, PkgBasePrice, PkgAgencyCommission) VALUES (@PkgName, @PkgStartDate, "
+                + "@PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencyCommission)";
+            
+            //Create the command and set all parameters
             SqlCommand insertCommand = new SqlCommand(insertStatement, connect);
             insertCommand.Parameters.AddWithValue("@PkgName", newPackage.PkgName);
             insertCommand.Parameters.AddWithValue("@PkgStartDate", newPackage.PkgStartDate);
@@ -62,6 +67,7 @@ namespace TravelExperts {
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", newPackage.PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", newPackage.PkgAgencyCommission);
 
+            //Try to insert the data
             try {
                 connect.Open();
                 check = insertCommand.ExecuteNonQuery();
@@ -72,7 +78,7 @@ namespace TravelExperts {
             finally {
                 connect.Close();
             }
-            return check;
+            return check;   //Return an integer that stores the amount of rows effected
         }
 
         public static int ModifyPackage(Package oldPackage, Package newPackage) {
@@ -128,6 +134,7 @@ namespace TravelExperts {
                 + "PkgAgencyCommission = @PkgAgencyCommission";
             SqlConnection connect = TravelExpertsDB.GetConnection();
 
+            //Create command and set all parameters
             SqlCommand deleteCommand = new SqlCommand(deleteStatement, connect);
             deleteCommand.Parameters.AddWithValue("@PackageID", package.PackageID);
             deleteCommand.Parameters.AddWithValue("@PkgName", package.PkgName);
@@ -138,6 +145,7 @@ namespace TravelExperts {
             deleteCommand.Parameters.AddWithValue("@PkgAgencyCommission", package.PkgAgencyCommission);
             int check = 0;
 
+            //Try to delete the row of data
             try {
                 connect.Open();
                 check = deleteCommand.ExecuteNonQuery();

@@ -14,20 +14,23 @@ namespace TravelExperts {
             InitializeComponent();
         }
 
+        //When form first appears, load all rows of data
         private void frmPackages_Load(object sender, EventArgs e)
         {
             loadPackages();
         }
 
+        //Close the form
         private void btnClose_Click(object sender, EventArgs e) {
             this.Close();
         }
 
+        //Displays all data in the data grid view
         private void loadPackages() {
             dgvPackages.DataSource = PackagesDB.GetAllPackages();
         }
 
-
+        //Open form to add a package, reload packages if insert is successful
         private void btnAdd_Click(object sender, EventArgs e) {
             frmAddPackage addPackage = new frmAddPackage();
             DialogResult result = addPackage.ShowDialog();
@@ -36,6 +39,7 @@ namespace TravelExperts {
             }
         }
 
+        //Store data in selected row in an object, open frmModifyPackage and reload data grid view if successful
         private void btnModify_Click(object sender, EventArgs e) {
             Package editedPackage = new Package();
             foreach(DataGridViewRow row in dgvPackages.SelectedRows) {
@@ -56,6 +60,8 @@ namespace TravelExperts {
             }
         }
 
+        //Store selected row in an object, double check the user does want to delete the package, reload data grid
+        //view if successful
         private void btnDelete_Click(object sender, EventArgs e) {
             Package deletedPackage = new Package();
             int check = 0;
