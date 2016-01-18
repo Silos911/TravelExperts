@@ -43,6 +43,7 @@ namespace TravelExperts {
         //Once a value has been assigned, change the format to display the chosen date
         private void dtpStartDate_ValueChanged(object sender, EventArgs e) {
             dtpStartDate.CustomFormat = PICKED_DATE;
+            dtpEndDate.MinDate = dtpStartDate.Value.AddDays(1);
         }
 
         //Once a value has been assigned, change the format to display the chosen date

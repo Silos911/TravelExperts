@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ *  Title: frmModifyPackage
+ *  Author: Stephen Strome
+ *  Last Date Modified: January 18, 2016
+ *
+ *  Form that lets the user edit a package. When it opens, set all the text boxes to the values from the row
+ *  selected on frmPackages. If the user wishes to, they can reset the form and search for a different package id.
+ *  When the user is done, they can finalize their changes and a message box will appear informing them if they
+ *  were successful or not.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +64,7 @@ namespace TravelExperts {
                 ResetStartDate();
             }
             txtPackageID.Enabled = false;
+            btnSearch.Enabled = false;
         }
 
         private void dtpEndDate_ValueChanged(object sender, EventArgs e) {
@@ -81,6 +93,10 @@ namespace TravelExperts {
 
             dtpEndDate.Enabled = false;
             dtpStartDate.Enabled = false;
+
+            btnSearch.Enabled = true;
+
+            oldPackage = null;
         }
 
         private void ResetStartDate() {
@@ -96,29 +112,35 @@ namespace TravelExperts {
         private void btnEdit_Click(object sender, EventArgs e) {
             Package newPackage = new Package();
 
-            newPackage.PkgName = txtPackageName.Text;
-            newPackage.PkgStartDate = dtpStartDate.Value;
-            newPackage.PkgEndDate = dtpEndDate.Value;
-            newPackage.PkgDesc = txtPackageDescription.Text;
-            newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
-            newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgentCommission.Text);
-
-            int check = 0;
-
-            try {
-                check = PackagesDB.ModifyPackage(oldPackage, newPackage);
-            }
-            catch (Exception ex) {
-                MessageBox.Show("An error has occurred: " + ex.Message);
-            }
-
-            if (check > 0) {
-                MessageBox.Show("Modification successful.");
-                DialogResult = DialogResult.OK;
+            if(oldPackage == null) {
+                MessageBox.Show("No package selected. Please try again.");
             }
             else {
-                MessageBox.Show("Modification failed, please try again.");
+                newPackage.PkgName = txtPackageName.Text;
+                newPackage.PkgStartDate = dtpStartDate.Value;
+                newPackage.PkgEndDate = dtpEndDate.Value;
+                newPackage.PkgDesc = txtPackageDescription.Text;
+                newPackage.PkgBasePrice = Convert.ToDecimal(txtBasePrice.Text);
+                newPackage.PkgAgencyCommission = Convert.ToDecimal(txtAgentCommission.Text);
+
+                int check = 0;
+
+                try {
+                    check = PackagesDB.ModifyPackage(oldPackage, newPackage);
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("An error has occurred: " + ex.Message);
+                }
+
+                if (check > 0) {
+                    MessageBox.Show("Modification successful.");
+                    DialogResult = DialogResult.OK;
+                }
+                else {
+                    MessageBox.Show("Modification failed, please try again.");
+                }
             }
+            
         }
 
         private void btnResetStart_Click(object sender, EventArgs e) {
@@ -127,6 +149,48 @@ namespace TravelExperts {
 
         private void btnResetEnd_Click(object sender, EventArgs e) {
             ResetEndDate();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e) {
+            try {
+                Package singlePackage = PackagesDB.GetSinglePackage(txtPackageID.Text);
+
+                if(singlePackage.PkgName == null) {
+                    MessageBox.Show("There is no record at ID " + txtPackageID.Text);
+                }
+                else {
+                    txtPackageName.Text = singlePackage.PkgName;
+
+                    if (dtpStartDate.MinDate > singlePackage.PkgStartDate) {
+                        dtpStartDate.MinDate = singlePackage.PkgStartDate;
+                    }
+                    dtpStartDate.Value = singlePackage.PkgStartDate;
+
+                    if (dtpEndDate.MinDate > singlePackage.PkgEndDate) {
+                        dtpEndDate.MinDate = singlePackage.PkgEndDate;
+                    }
+                    dtpEndDate.Value = singlePackage.PkgEndDate;
+                    txtPackageDescription.Text = singlePackage.PkgDesc;
+                    txtBasePrice.Text = singlePackage.PkgBasePrice.ToString();
+                    txtAgentCommission.Text = singlePackage.PkgAgencyCommission.ToString();
+
+                    txtPackageID.Enabled = false;
+                    btnSearch.Enabled = false;
+
+                    txtPackageName.Enabled = true;
+                    dtpStartDate.Enabled = true;
+                    dtpEndDate.Enabled = true;
+                    txtPackageDescription.Enabled = true;
+                    txtBasePrice.Enabled = true;
+                    txtAgentCommission.Enabled = true;
+
+                    oldPackage = singlePackage;
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show("An error has occurred: " + ex.Message);
+            }
+
         }
     }
 }

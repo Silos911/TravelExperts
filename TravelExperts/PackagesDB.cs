@@ -158,6 +158,37 @@ namespace TravelExperts {
             }
             return check;
         }
+
+        public static Package GetSinglePackage(string packageID) {
+            SqlConnection connect = TravelExpertsDB.GetConnection(); //The connection to the database
+            string selectStatement = "SELECT * FROM Packages WHERE PackageID = @PackageID";  //The select statement to pull the data
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connect);    //The command for the database
+            selectCommand.Parameters.AddWithValue("@PackageID", packageID);
+            Package singlePackage = new Package(); //The object each row will temporarily be stored in
+
+            try {
+                connect.Open();
+                SqlDataReader read = selectCommand.ExecuteReader();
+
+                //Reads each row from the database and stores it in a list
+                while (read.Read()) {
+                    singlePackage.PackageID = Convert.ToInt32(read["PackageID"]);
+                    singlePackage.PkgName = Convert.ToString(read["PkgName"]);
+                    singlePackage.PkgStartDate = Convert.ToDateTime(read["PkgStartDate"]);
+                    singlePackage.PkgEndDate = Convert.ToDateTime(read["PkgEndDate"]);
+                    singlePackage.PkgDesc = Convert.ToString(read["PkgDesc"]);
+                    singlePackage.PkgBasePrice = Convert.ToDecimal(read["PkgBasePrice"]);
+                    singlePackage.PkgAgencyCommission = Convert.ToDecimal(read["PkgAgencyCommission"]);
+                }
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+            }
+            return singlePackage;
+        }
     }
 
 }
