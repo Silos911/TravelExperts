@@ -211,6 +211,7 @@
             this.btnResetStart.TabIndex = 18;
             this.btnResetStart.Text = "Reset Start Date";
             this.btnResetStart.UseVisualStyleBackColor = true;
+            this.btnResetStart.Click += new System.EventHandler(this.btnResetStart_Click);
             // 
             // btnResetEnd
             // 
@@ -220,6 +221,7 @@
             this.btnResetEnd.TabIndex = 19;
             this.btnResetEnd.Text = "Reset End Date";
             this.btnResetEnd.UseVisualStyleBackColor = true;
+            this.btnResetEnd.Click += new System.EventHandler(this.btnResetEnd_Click);
             // 
             // frmModifyPackage
             // 

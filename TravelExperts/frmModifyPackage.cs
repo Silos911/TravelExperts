@@ -52,6 +52,7 @@ namespace TravelExperts {
             if (startDatePicked == false) {
                 ResetStartDate();
             }
+            txtPackageID.Enabled = false;
         }
 
         private void dtpEndDate_ValueChanged(object sender, EventArgs e) {
@@ -72,8 +73,14 @@ namespace TravelExperts {
             txtAgentCommission.Text = null;
             txtAgentCommission.Enabled = false;
 
+            txtPackageID.Text = null;
+            txtPackageID.Enabled = true;
+
             ResetEndDate();
             ResetStartDate();
+
+            dtpEndDate.Enabled = false;
+            dtpStartDate.Enabled = false;
         }
 
         private void ResetStartDate() {
@@ -112,6 +119,14 @@ namespace TravelExperts {
             else {
                 MessageBox.Show("Modification failed, please try again.");
             }
+        }
+
+        private void btnResetStart_Click(object sender, EventArgs e) {
+            ResetStartDate();
+        }
+
+        private void btnResetEnd_Click(object sender, EventArgs e) {
+            ResetEndDate();
         }
     }
 }
