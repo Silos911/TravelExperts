@@ -35,3 +35,4 @@ C:\Users\718358\Documents\Visual Studio 2015\TravelExperts\TravelExperts\obj\Deb
 C:\Users\718358\Documents\Visual Studio 2015\TravelExperts\TravelExperts\obj\Debug\TravelExperts.Properties.Resources.resources
 C:\Users\718358\Documents\Visual Studio 2015\TravelExperts\TravelExperts\obj\Debug\TravelExperts.csproj.GenerateResource.Cache
 C:\Users\718358\Documents\Visual Studio 2015\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmProductSuppliers.resources
+C:\Users\718358\Documents\Visual Studio 2015\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmAddEditDeleteProductSupplier.resources

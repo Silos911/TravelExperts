@@ -44,6 +44,7 @@
             this.dgvProductsSuppliers.RowTemplate.Height = 24;
             this.dgvProductsSuppliers.Size = new System.Drawing.Size(703, 245);
             this.dgvProductsSuppliers.TabIndex = 1;
+            this.dgvProductsSuppliers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsSuppliers_CellContentClick);
             // 
             // btnAddProductSupplier
             // 
@@ -77,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 446);
+            this.ClientSize = new System.Drawing.Size(845, 545);
             this.Controls.Add(this.btnDeleteProductSupplier);
             this.Controls.Add(this.btnEditProductSupplier);
             this.Controls.Add(this.btnAddProductSupplier);

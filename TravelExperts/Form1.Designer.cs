@@ -54,7 +54,7 @@
             // 
             this.btnProductSuppliers.Location = new System.Drawing.Point(739, 203);
             this.btnProductSuppliers.Name = "btnProductSuppliers";
-            this.btnProductSuppliers.Size = new System.Drawing.Size(105, 37);
+            this.btnProductSuppliers.Size = new System.Drawing.Size(105, 59);
             this.btnProductSuppliers.TabIndex = 2;
             this.btnProductSuppliers.Text = "Product Suppliers";
             this.btnProductSuppliers.UseVisualStyleBackColor = true;

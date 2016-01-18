@@ -34,17 +34,39 @@ namespace TravelExperts
 
         private void btnAddProductSupplier_Click(object sender, EventArgs e)
         {
-            frmProductSuppliers addProductSupplierForm = new frmProductSuppliers();
+            frmAddEditDeleteProductSupplier addProductSupplierForm = new frmAddEditDeleteProductSupplier();
             addProductSupplierForm.addProductSupplier = true;
             //If user confirms add then call add method with current product
             DialogResult result = addProductSupplierForm.ShowDialog();
             //If added successfully, display product
-            if (result == DialogResult.OK)
-            {
-                productSupplier = addProductSupplierForm.productSupplier;
-                txtProductCode.Text = product.ProductCode.ToString();
-                this.DisplayProduct();
-            }
+            //    if (result == DialogResult.OK)
+            //    {
+            //        productSupplier = addProductSupplierForm.productSupplier; 
+            //        txtProductSupplierId.Text = productSupplier.ProductSupplierId.ToString();
+            //        this.DisplayProduct();
+            //    }
+            //}
         }
+
+        private void dgvProductsSuppliers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //private void dgvProductsSuppliers_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    DataGridViewCell cell = null;
+        //    foreach (DataGridViewCell selectedCell in dataGridView.SelectedCells)
+        //    {
+        //        cell = SelectedCell;
+        //        break;
+        //    }
+        //    if (cell != null)
+        //    {
+        //        DataGridViewRow row = cell.OwningRow;
+        //        ProductSupplierIdTextBox.Text = row.Cells["ProductSupplierId"].Value.ToString();
+
+        //    }
     }
-}
+    }
+//}
