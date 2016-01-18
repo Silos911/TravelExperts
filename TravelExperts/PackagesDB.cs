@@ -76,6 +76,7 @@ namespace TravelExperts {
         }
 
         public static int ModifyPackage(Package oldPackage, Package newPackage) {
+            //What to update and where
             string updateStatement = "UPDATE Packages SET PkgName = @newPkgName, "
                 + "PkgStartDate = @newPkgStartDate, "
                 + "PkgEndDate = @newPkgEndDate,"
@@ -87,6 +88,7 @@ namespace TravelExperts {
                 + "PkgAgencyCommission = @oldPkgAgencyCommission";
             SqlConnection connect = TravelExpertsDB.GetConnection();
 
+            //Create the command and set all parameters
             SqlCommand updateCommand = new SqlCommand(updateStatement, connect);
             updateCommand.Parameters.AddWithValue("@newPkgName", newPackage.PkgName);
             updateCommand.Parameters.AddWithValue("@newPkgStartDate", newPackage.PkgStartDate);
@@ -104,9 +106,41 @@ namespace TravelExperts {
 
             int check = 0;
 
+            //Try to execute command
             try {
                 connect.Open();
                 check = updateCommand.ExecuteNonQuery();
+            }
+            catch (Exception e) {
+                throw e;
+            }
+            finally {
+                connect.Close();
+            }
+            //Return result of the command
+            return check;
+        }
+
+        public static int DeletePackage(Package package) {
+            string deleteStatement = "DELETE FROM Packages WHERE PackageID = @PackageID AND "
+                + "PkgName = @PkgName AND PkgStartDate = @PkgStartDate AND PkgEndDate = @PkgEndDate AND "
+                + "PkgDesc = @PkgDesc AND PkgBasePrice = @PkgBasePrice AND "
+                + "PkgAgencyCommission = @PkgAgencyCommission";
+            SqlConnection connect = TravelExpertsDB.GetConnection();
+
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connect);
+            deleteCommand.Parameters.AddWithValue("@PackageID", package.PackageID);
+            deleteCommand.Parameters.AddWithValue("@PkgName", package.PkgName);
+            deleteCommand.Parameters.AddWithValue("@PkgStartDate", package.PkgStartDate);
+            deleteCommand.Parameters.AddWithValue("@PkgEndDate", package.PkgEndDate);
+            deleteCommand.Parameters.AddWithValue("@PkgDesc", package.PkgDesc);
+            deleteCommand.Parameters.AddWithValue("@PkgBasePrice", package.PkgBasePrice);
+            deleteCommand.Parameters.AddWithValue("@PkgAgencyCommission", package.PkgAgencyCommission);
+            int check = 0;
+
+            try {
+                connect.Open();
+                check = deleteCommand.ExecuteNonQuery();
             }
             catch (Exception e) {
                 throw e;
