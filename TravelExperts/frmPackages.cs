@@ -92,6 +92,13 @@ namespace TravelExperts {
             }
         }
 
-
+        private void btnPackagesProductsSuppliers_Click(object sender, EventArgs e) {
+            int packageId = 0;
+            foreach (DataGridViewRow row in dgvPackages.SelectedRows) {
+                packageId = Convert.ToInt32(row.Cells[0].Value);
+            }
+            frmPackageProducts newWindow = new frmPackageProducts(packageId);
+            newWindow.Show();
+        }
     }
 }

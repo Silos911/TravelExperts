@@ -28,3 +28,4 @@ C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\bin\Debug\Trav
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmPackages.resources
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmAddPackage.resources
 C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmModifyPackage.resources
+C:\Users\717357\Desktop\TravelExperts\TravelExperts\TravelExperts\obj\Debug\TravelExperts.frmPackageProducts.resources

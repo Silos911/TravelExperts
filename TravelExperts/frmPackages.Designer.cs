@@ -28,6 +28,7 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnPackagesProductsSuppliers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,11 +88,22 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnPackagesProductsSuppliers
+            // 
+            this.btnPackagesProductsSuppliers.Location = new System.Drawing.Point(614, 279);
+            this.btnPackagesProductsSuppliers.Name = "btnPackagesProductsSuppliers";
+            this.btnPackagesProductsSuppliers.Size = new System.Drawing.Size(75, 23);
+            this.btnPackagesProductsSuppliers.TabIndex = 5;
+            this.btnPackagesProductsSuppliers.Text = "Change Test";
+            this.btnPackagesProductsSuppliers.UseVisualStyleBackColor = true;
+            this.btnPackagesProductsSuppliers.Click += new System.EventHandler(this.btnPackagesProductsSuppliers_Click);
+            // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(856, 322);
+            this.Controls.Add(this.btnPackagesProductsSuppliers);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnModify);
@@ -112,5 +124,6 @@
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnPackagesProductsSuppliers;
     }
 }

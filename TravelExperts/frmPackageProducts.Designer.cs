@@ -23,24 +23,24 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPackagesProductsSuppliers = new System.Windows.Forms.DataGridView();
             this.lblProducts = new System.Windows.Forms.Label();
             this.cmbProducts = new System.Windows.Forms.ComboBox();
             this.lblSuppliers = new System.Windows.Forms.Label();
             this.cmbSuppliers = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackagesProductsSuppliers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvPackagesProductsSuppliers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 224);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvPackagesProductsSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackagesProductsSuppliers.Location = new System.Drawing.Point(3, 0);
+            this.dgvPackagesProductsSuppliers.Name = "dgvPackagesProductsSuppliers";
+            this.dgvPackagesProductsSuppliers.RowTemplate.Height = 24;
+            this.dgvPackagesProductsSuppliers.Size = new System.Drawing.Size(240, 224);
+            this.dgvPackagesProductsSuppliers.TabIndex = 0;
             // 
             // lblProducts
             // 
@@ -105,10 +105,11 @@
             this.Controls.Add(this.lblSuppliers);
             this.Controls.Add(this.cmbProducts);
             this.Controls.Add(this.lblProducts);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPackagesProductsSuppliers);
             this.Name = "frmPackageProducts";
             this.Text = "frmPackageProducts";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmPackageProducts_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackagesProductsSuppliers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +117,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPackagesProductsSuppliers;
         private System.Windows.Forms.Label lblProducts;
         private System.Windows.Forms.ComboBox cmbProducts;
         private System.Windows.Forms.Label lblSuppliers;

@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace TravelExperts {
     public partial class frmPackageProducts : Form {
-        public frmPackageProducts() {
+        int packageId = 0;
+        public frmPackageProducts(int userInput) {
             InitializeComponent();
+            packageId = userInput;
+        }
+
+        private void frmPackageProducts_Load(object sender, EventArgs e) {
+            dgvPackagesProductsSuppliers.DataSource = PackagesProductsSuppliersDB.GetAllPackagesProductsSuppliers(packageId);
         }
     }
 }
