@@ -64,6 +64,12 @@
     <Compile Include="frmModifyPackage.Designer.cs">
       <DependentUpon>frmModifyPackage.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPackageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackageProducts.Designer.cs">
+      <DependentUpon>frmPackageProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Package.cs" />
     <Compile Include="PackagesDB.cs" />
     <Compile Include="frmPackages.cs">
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifyPackage.resx">
       <DependentUpon>frmModifyPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPackageProducts.resx">
+      <DependentUpon>frmPackageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPackages.resx">
       <DependentUpon>frmPackages.cs</DependentUpon>

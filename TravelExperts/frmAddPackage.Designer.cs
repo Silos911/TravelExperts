@@ -38,13 +38,14 @@
             this.txtBasePrice = new System.Windows.Forms.TextBox();
             this.txtAgentCommission = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(325, 334);
+            this.btnCancel.Location = new System.Drawing.Point(331, 334);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 38);
+            this.btnCancel.Size = new System.Drawing.Size(88, 43);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -52,9 +53,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(124, 334);
+            this.btnAdd.Location = new System.Drawing.Point(130, 334);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 38);
+            this.btnAdd.Size = new System.Drawing.Size(88, 43);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -165,19 +166,29 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(225, 334);
+            this.btnReset.Location = new System.Drawing.Point(231, 334);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(88, 38);
+            this.btnReset.Size = new System.Drawing.Size(88, 43);
             this.btnReset.TabIndex = 14;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnProducts
+            // 
+            this.btnProducts.Location = new System.Drawing.Point(2, 334);
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.Size = new System.Drawing.Size(120, 43);
+            this.btnProducts.TabIndex = 15;
+            this.btnProducts.Text = "Add Product Suppliers";
+            this.btnProducts.UseVisualStyleBackColor = true;
             // 
             // frmAddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 389);
+            this.Controls.Add(this.btnProducts);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtAgentCommission);
             this.Controls.Add(this.txtBasePrice);
@@ -218,5 +229,6 @@
         private System.Windows.Forms.TextBox txtBasePrice;
         private System.Windows.Forms.TextBox txtAgentCommission;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnProducts;
     }
 }
