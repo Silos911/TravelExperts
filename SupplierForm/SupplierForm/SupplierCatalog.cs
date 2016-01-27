@@ -30,7 +30,7 @@ namespace SupplierForm
         private void SupplierCatalog_Load(object sender, EventArgs e)
         {
             connection.Open();
-            da = new SqlDataAdapter("SELECT Suppliers.[SupplierId],[SupConCompany],[SupConAddress],[SupConCity], [SupConProv], [SupConPostal], [SupConCountry], [SupConBusPhone] , [SupConFax], [SupConEmail], [AffilitationId] FROM [dbo].[SupplierContacts] JOIN Suppliers ON SupplierContacts.SupplierId = Suppliers.SupplierId JOIN [dbo].[Affiliations] ON [dbo].[Affiliations].AffilitationId = SupplierContacts.AffiliationId", connection);
+            da = new SqlDataAdapter("SELECT Suppliers.[SupplierId],[SupConCompany],[SupConAddress],[SupConCity], [SupConProv], [SupConPostal], [SupConCountry], [SupConBusPhone], [SupConFax], [SupConEmail], [AffilitationId] FROM [dbo].[SupplierContacts] JOIN Suppliers ON SupplierContacts.SupplierId = Suppliers.SupplierId JOIN [dbo].[Affiliations] ON [dbo].[Affiliations].AffilitationId = SupplierContacts.AffiliationId", connection);
             dt = new DataTable();
             da.Fill(dt);
             dgvSupplierCatalog.DataSource = dt;

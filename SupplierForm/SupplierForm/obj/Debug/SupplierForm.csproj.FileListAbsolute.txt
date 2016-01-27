@@ -7,3 +7,6 @@ C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\SupplierF
 C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\SupplierForm\SupplierForm\obj\Debug\SupplierForm.csproj.GenerateResource.Cache
 C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\SupplierForm\SupplierForm\obj\Debug\SupplierForm.exe
 C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\SupplierForm\SupplierForm\obj\Debug\SupplierForm.pdb
+C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\TravelExperts\SupplierForm\SupplierForm\bin\Debug\SupplierForm.exe.config
+C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\TravelExperts\SupplierForm\SupplierForm\obj\Debug\SupplierForm.exe
+C:\Users\716492\Documents\Visual Studio 2013\Projects\ThreadedProject2\TravelExperts\SupplierForm\SupplierForm\obj\Debug\SupplierForm.pdb
